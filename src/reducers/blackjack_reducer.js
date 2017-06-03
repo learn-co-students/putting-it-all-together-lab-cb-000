@@ -60,6 +60,36 @@ export default (state={}, action) => {
         ]
       }
 
+      case 'SET_AI_CARDS':
+          return action.payload;
+      case 'SET_USER_CARDS':
+          return action.payload;
+
+      case 'HIT_AI':
+        //clone obj
+        let aiState = Object.assign({}, state);
+        //add card to aiCards[]
+        aiState.aiCards = [...aiState.aiCards, action.payload];
+
+        //remove the card from the deck
+        let removeAiCardIndex = aiState.deck.findIndex((card) => card === action.payload );
+        aiState.deck.splice(removeAiCardIndex, 1);
+
+        return aiState;
+
+      case 'HIT_USER':
+        //clone obj
+        let userState = Object.assign({}, state);
+        //add card to aiCards[]
+        userState.aiCards = [...userState.userCards, action.payload];
+
+        //remove the card from the deck
+        let removeUserCardIndex = userState.deck.findIndex((card) => card === action.payload );
+        userState.deck.splice(removeUserCardIndex, 1);
+
+        return userState;
+
+
     default:
       return state
   }

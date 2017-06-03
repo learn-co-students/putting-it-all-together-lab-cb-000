@@ -257,7 +257,7 @@ describe('Blackjack:', function(){
       expect(wrapper.find('ul').text()).toEqual(wrapper.props().userCards.reduce((prev, curr)=> {return prev + curr.name}, ''), 'does not properly list out User cards from state')
     })
 
-    it("should have a 'Hit Me' `button` within a `form`", function(){
+    it("should have a ' Hit Me ' `button` within a `form`", function(){
       const wrapper = mount(<UserBlackjack userCards={store.getState().userCards} score={function(){}}/>)
       expect(wrapper.find('form').findWhere(n=>n.text() === " Hit Me ").nodes[1].type).toEqual('submit', 'does not have a "Hit Me" submit `button` tag')
     })
