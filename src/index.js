@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { createStore } from './store';
 import App from './components/app'
+import deckReducer from './reducers/blackjack_reducer.js'
+const store = createStore(deckReducer);
 
 ReactDOM.render(<App store={store}/>, document.getElementById('container'))
 
