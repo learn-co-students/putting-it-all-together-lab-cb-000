@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import UserBlackjack from './user_blackjack'
 import AIBlackjack from './ai_blackjack'
-
 import { hitAi, hitUser } from '../actions/blackjack_actions'
 
 export default class App extends Component {
@@ -44,7 +43,7 @@ export default class App extends Component {
     const getAiCards = this.props.store.getState().aiCards;
     return(
       <div>
-        <UserBlackjack userCards={ getUserCards } hitMe={ this.hitMe } score={ this.calculateUserScore } calculateAiScore={ this.calculateAiScore } stay={this.stay } />
+        <UserBlackjack userCards={ getUserCards } hitMe={ this.hitMe } score={ this.calculateUserScore } stay={this.stay } calculateAiScore={ this.calculateAiScore } />
         <AIBlackjack aiCards={ getAiCards } hitMe={ this.hitMe } score={ this.calculateAiScore } userScore={ this.calculateUserScore } />
       </div>
     )
