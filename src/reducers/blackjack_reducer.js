@@ -59,6 +59,20 @@ export default (state={}, action) => {
           {name:"King of Hearts", value: 10}
         ]
       }
+    case 'SET_CARDS':
+      return action.payload;
+
+    case 'HIT_AI':
+      let aiState = JSON.parse(JSON.stringify(state));
+      aiState.aiCards.push(action.payload);
+      aiState.deck.filter(card => card !== action.payload);
+      return aiState;
+
+    case 'HIT_USER':
+      let userState = JSON.parse(JSON.stringify(state));
+      userState.userCards.push(action.payload);
+      userState.deck.filter(card => card !== action.payload);
+      return userState;
 
     default:
       return state
