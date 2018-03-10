@@ -26,7 +26,7 @@ export default class App extends React.Component {
 
   stay(ev) {
     ev.preventDefault();
-    this.calculateAiScore() < this.calculateUserScore() ? this.hitMe() : null;
+    this.calculateAiScore() <= this.calculateUserScore() ? this.hitMe() : null;
   }
 
   render() {
