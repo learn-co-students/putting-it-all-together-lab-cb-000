@@ -59,8 +59,40 @@ export default (state={}, action) => {
           {name:"King of Hearts", value: 10}
         ]
       }
+    case 'SET_AI_CARDS':
+      return (
+        action.payload
+      )
+
+
+    case 'SET_USER_CARDS':
+      return (
+        action.payload
+      )
+
+    case 'HIT_USER':
+      var user = Object.assign( {}, state)
+      user.userCards = [...user.userCards, action.payload]
+
+      var removeCard = user.deck.findIndex( (card) => card === action.payload)
+      user.deck.splice(removeCard, 1)
+
+      return (
+        user
+      )
+
+    case 'HIT_AI':
+      var ai = Object.assign( {}, state)
+      ai.userCards = [...ai.userCards, action.payload]
+
+      var removeCard = ai.deck.findIndex( (card) => card === action.payload)
+      ai.deck.splice(removeCard, 1)
+
+      return (
+        ai
+      )
 
     default:
       return state
   }
-}
+};
