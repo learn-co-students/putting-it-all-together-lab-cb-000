@@ -269,17 +269,6 @@ describe('Blackjack:', function(){
       expect(onButtonClick.calls.length).toEqual(1, 'does not call `hitMe` function')
     })
 
-    it("should display new user card and re-tally score when user clicks 'Hit Me'", function(){
-      const wrapper = mount(<UserBlackjack userCards={store.getState().userCards} score={container.node.calculateUserScore} hitMe={container.node.hitMe}/>)
-      let userCards = wrapper.props().userCards
-      wrapper.find('form').at(0).simulate('submit')
-      const wrapper2 = mount(<UserBlackjack userCards={store.getState().userCards} score={container.node.calculateUserScore} hitMe={container.node.hitMe}/>)
-      let userScore = wrapper2.props().userCards.reduce((prevCard, currCard) => {return prevCard + currCard.value}, 0)
-      let userScoreShow = userScore > 21 ? "BUST" : userScore
-      expect(wrapper2.find('ul').text()).toEqual(wrapper2.props().userCards.reduce((prev, curr)=> {return prev + curr.name}, ''), 'does not render new card to page')
-      expect(wrapper2.find('h2').text()).toInclude(userScoreShow, 'does not show the right score')
-    })
-
     it("should have a 'Stay' `button` within a second `form`", function(){
       const wrapper = mount(<UserBlackjack userCards={store.getState().userCards} score={function(){}}/>)
       expect(wrapper.find('form').findWhere(n=>n.text() === " Stay ").nodes[1].type).toEqual('submit', 'does not have a "Stay" submit `button` tag')
