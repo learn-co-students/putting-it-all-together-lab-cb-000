@@ -1,11 +1,11 @@
 import React from 'react'
-import userBlackjack from 'user_blackjack'
-import aiBlackjack from 'ai_blackjack'
+import userBlackjack from './user_blackjack'
+import aiBlackjack from './ai_blackjack'
 import {fetchDeck, setAICards, setUserCards, hitAI, hitUser} from '../actions/blackjack_actions'
 
 export default class App extends React.component {
   hitMe = (caller) => {
-    if caller === "user" {
+    if (caller === "user") {
       store.dispatch(hitUser(store.getState().deck))
     }
     else {
