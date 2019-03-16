@@ -15,7 +15,7 @@ Build out a functional blackjack game with all that we've learned about React, F
 # Putting it all together - Blackjack
 
 Build a Flux implementation of a blackjack game!
-
+ 
 ## Objectives
 
 * Build a working version of blackjack using Flux patterns
