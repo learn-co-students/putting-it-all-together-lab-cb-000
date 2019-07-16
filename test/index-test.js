@@ -107,6 +107,7 @@ describe('Blackjack:', function(){
       expect(setAICards).toBeA('function', '`setAICards()` is not a function')
       expect(setAICards(store.getState()).payload.aiCards).toBeA('array', 'payload from `setAICards()` action should include aiCards array')
       expect(setAICards(deck).payload.aiCards.length).toEqual(2, 'payload from `setAICards()` action should return updated aiCards array with two new card objects')
+console.log(store.getState().aiCards);
       expect(store.getState().aiCards.length).toEqual(2, 'did not properly set the aiCards - hint: deepclone object in setAICards()')
     })
 
