@@ -5,6 +5,10 @@ import App from './components/app'
 
 ReactDOM.render(<App store={store}/>, document.getElementById('container'))
 
+const render = () => {
+  ReactDOM.render(<App store={store}/>, document.getElementById('container'))
+}
+
 store.subscribe(render)
 store.dispatch(fetchDeck())
 store.dispatch(setAICards(store.getState()))
