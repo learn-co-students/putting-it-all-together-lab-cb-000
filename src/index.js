@@ -1,9 +1,14 @@
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './components/app'
 
 ReactDOM.render(<App store={store}/>, document.getElementById('container'))
+
+const render = () => {
+  ReactDOM.render(<App store={store}/>, document.getElementById('container'))
+}
 
 store.subscribe(render)
 store.dispatch(fetchDeck())
